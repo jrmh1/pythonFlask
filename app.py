@@ -1,11 +1,16 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# Root URL route
+
 @app.route('/')
 def home():
-    return "Welcome to the Homepage!"
+    # Data to be passed to the template
+    message = "Hello from Flask with Jinja2 Templates!"
+    subtitle = "Hello World!"
+
+    # Render the template and pass the variables
+    return render_template('index.html', message=message, subtitle=subtitle)
 
 
 # About page route
